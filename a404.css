@@ -1,0 +1,27 @@
+.a404page {
+    background: #2c3136;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 350px;
+    text-align: center;
+}
+.a404page h1 {
+    color: #2ecc71;
+}
+.a404page p {
+    color: #fff;
+}
+.a404page a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #2ecc71;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.a404page a:hover {
+    background-color: #27ae60;
+}
