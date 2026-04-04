@@ -1,0 +1,16 @@
+*{
+    max-width: 100% !important;
+    max-height: 100% !important;
+    margin: auto;
+    font-family: Poppins, sans-serif;
+}
+body{
+    background-image: url('assets/img/schl_bldg.jpg') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

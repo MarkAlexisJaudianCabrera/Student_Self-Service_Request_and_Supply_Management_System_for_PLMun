@@ -1,0 +1,72 @@
+.request-container{
+   background: #2c3136;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    max-width: 75% !important;
+    height: auto;
+    margin: 1rem;
+    text-align: center;
+}
+.request-container .title{
+    font-size: 20px;
+    font-weight: bold;
+    color: #2ecc71;
+    margin-bottom: 10px;
+}
+.request-container .subtitle{
+    font-size: 13px;
+    color: #fff;
+    margin-bottom: 25px;
+}
+.request-container form{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: flex-end;
+}
+.request-container label{
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 5px;
+    display: block;
+}
+.request-container input[type="text"],
+.request-container input[type="email"]{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+    color: #000;
+    flex: 1;
+    min-width: 150px;
+    margin-bottom: 0;
+}
+.request-container #fnresult,
+.request-container #courseresult{
+    background: #3a4047;
+    color: #000;
+    pointer-events: none;
+}
+.request-container input[type="submit"]{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #2ecc71;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+.footer{
+    margin-top: 20px;
+    font-size: 12px;
+    color: #888;    
+}
+.request-container .subtitle{
+    border-bottom: 2px solid #2ecc71 !important
+}
+.request-container:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+}

@@ -1,0 +1,17 @@
+/* navbar styles */
+.navbar {
+    width: 100%;
+    height: 60px;
+    background: #2c3136;
+    display: flex;
+    padding: 0 20px;
+    position: fixed; 
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar img {
+    object-fit: cover;
+    margin: 7.5px 15px;
+}
+/* navbar end styles */

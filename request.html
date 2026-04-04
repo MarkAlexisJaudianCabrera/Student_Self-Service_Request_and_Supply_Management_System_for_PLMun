@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Service Request - Student Self-Service Request and Supply Management System for PLMUN</title>
+    <link rel="stylesheet" href="allstyles.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="request.css">
+    <link rel="icon" type="image/x-icon" href="assets/ico/logo16ico.ico" >
+    <link rel="icon" type="image/x-icon" href="assets/ico/logo32ico.ico" >
+    <link rel="icon" type="image/x-icon" href="assets/ico/logo96ico.ico" >
+    <link rel="icon" type="image/x-icon" href="assets/ico/logo192ico.ico" >
+</head>
+<body>
+    <nav class="navbar">
+        <img src="assets/img/schl_logo-1.png" alt="Logo">
+    </nav>
+
+    <div class="request-container">
+        <div class="title">
+            <h3>Self-Service Request</h3>
+        </div>
+        <div class="subtitle">
+            <p>This is the self-service request page. Here, students can submit their requests for various services and supplies. Please fill out the form below to check validity.</p>
+        <br>
+        </div>
+        <form class="checkinput">
+            <label for="student-id">Student ID:</label>
+            <input type="text" id="student-id" name="student-id" required>
+            <label for="email">Institutional Email:</label>
+            <input type="email" id="email" name="email" required>
+            <input type="submit" value="Check Validity">
+        </form>
+        <br>
+        <form class="checkresult">
+            <label for="text">Full Name:</label>
+            <input type="text" id="fnresult" name="fnresult" readonly>
+            <label for="text">Course:</label>
+            <input type="text" id="courseresult" name="courseresult" readonly>
+        </form>
+        <div class="footer">
+            © 2026 All rights reserved
+        </div>
+    </div>
+</body>
+</html>
