@@ -5,7 +5,7 @@
     font-family: Poppins, sans-serif;
 }
 body{
-    background-image: url('assets/img/schl_bldg.jpg') !important;
+    background-image: url('/assets/img/schl_bldg.jpg') !important;
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
