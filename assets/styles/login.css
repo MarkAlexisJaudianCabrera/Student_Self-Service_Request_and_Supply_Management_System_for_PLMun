@@ -1,10 +1,12 @@
 /* login form styles */
 form{
-    border-top: 2px solid #2ecc71 !important
+    border-top: 2px solid #2ecc71 !important;
 }
 .login_form label{
     color: #fff !important;
-
+}
+.login_form .input-group input{
+    width: 17.4rem;
 }
 .login-container {
     background: #2c3136;
@@ -76,5 +78,16 @@ form{
 .login-container:hover {
     transform: translateY(-5px);
     transition: 0.3s;
+}
+.error-box {
+    display: none;
+    color: red;
+    text-align: center;
+    /* margin-bottom: 10px; */
+    font-weight: bold;
+    border-bottom: 2px solid #2ecc71 !important;
+}
+.show {
+    display: block;
 }
 /* login form end styles */

@@ -13,8 +13,8 @@
     <link rel="icon" type="image/x-icon" href="/assets/ico/logo192ico.ico" >
 </head>
 <body>
-    <nav class="navbar">
-        <img src="/assets/img/schl_logo-1.png" alt="Logo">
+   <nav class="navbar">
+        <a href="/landingpage.html"><img src="/assets/img/schl_logo-1.png" alt="Logo"></a>
     </nav>
     <div class="a404page">
         <h1>404 Not Found</h1>

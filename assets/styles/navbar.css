@@ -14,4 +14,9 @@
     object-fit: cover;
     margin: 7.5px 15px;
 }
+
+.navbar a {
+    object-fit: cover;
+    margin: 7.5px 15px;
+}
 /* navbar end styles */
