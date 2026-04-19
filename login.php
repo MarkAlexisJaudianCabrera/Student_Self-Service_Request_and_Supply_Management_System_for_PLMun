@@ -55,7 +55,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Staff Login</title>
-
+        <link rel="icon" href="./assets/ico/logo16ico.ico" >
+        <link rel="icon" href="./assets/ico/logo32ico.ico" >
+        <link rel="icon" href="./assets/ico/logo96ico.ico" >
+        <link rel="icon" href="./assets/ico/logo192ico.ico">
         <link rel="stylesheet" href="/assets/styles/allstyles.css">
         <link rel="stylesheet" href="/assets/styles/navbar.css">
         <link rel="stylesheet" href="/assets/styles/login.css">
