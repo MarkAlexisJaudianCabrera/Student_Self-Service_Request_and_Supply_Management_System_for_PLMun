@@ -1,9 +1,76 @@
+body {
+    background: #2c3136;
+    font-family: Arial, sans-serif;
+}
+
+/* MAIN CONTAINER */
+.summary-container {
+    max-width: 500px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* TITLE */
+.summary-container h2 {
+    text-align: center;
+    color: white;
+}
+
+/* CARD STYLE */
+.card {
+    background: #3a4046;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+}
+
+/* ITEMS */
 .item-row {
     display: flex;
-    justify-content: space-between;
-    padding: 8px;
-    background: #2c3136;
-    margin-bottom: 5px;
-    border-radius: 5px;
+    flex-direction: column;
+    padding: 10px;
+    border-bottom: 1px solid #555;
+}
+
+.item-row:last-child {
+    border-bottom: none;
+}
+
+/* TOTAL */
+.total-box {
+    background: #4CAF50;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+
+/* BUTTONS */
+.button-group {
+    display: flex;
+    flex-direction: column; /* 🔥 vertical buttons */
+    gap: 10px;
+}
+
+.button-group button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+/* cancel */
+.cancel-btn {
+    background: #ff4d4d;
+    color: white;
+}
+
+/* submit */
+.submit-btn {
+    background: #4CAF50;
     color: white;
 }

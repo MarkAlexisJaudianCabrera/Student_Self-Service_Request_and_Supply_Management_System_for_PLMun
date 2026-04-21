@@ -1,4 +1,15 @@
 /* login form styles */
+@media (max-width: 768px) {
+    body{
+        height: 120vh;
+    }
+}
+@media (max-width: 1900px) {
+    body{
+        height: 150vh;
+    }
+}
+
 form{
     border-top: 2px solid #2ecc71 !important;
 }

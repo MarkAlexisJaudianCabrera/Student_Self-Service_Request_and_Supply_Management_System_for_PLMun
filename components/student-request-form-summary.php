@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include('../config/db.php'); // 🔥 THIS WAS MISSING
+    include('../config/db.php'); 
 
     if (
         !isset($_SESSION['validated']) || 
@@ -40,10 +40,10 @@
         <link rel="stylesheet" href="/assets/styles/allstyles.css">
         <link rel="stylesheet" href="/assets/styles/navbar.css">
         <link rel="stylesheet" href="/assets/styles/summary.css">
-        <link rel="icon" href="./assets/ico/logo16ico.ico" >
-        <link rel="icon" href="./assets/ico/logo32ico.ico" >
-        <link rel="icon" href="./assets/ico/logo96ico.ico" >
-        <link rel="icon" href="./assets/ico/logo192ico.ico">
+        <link rel="icon" href="/assets/ico/logo16ico.ico" >
+        <link rel="icon" href="/assets/ico/logo32ico.ico" >
+        <link rel="icon" href="/assets/ico/logo96ico.ico" >
+        <link rel="icon" href="/assets/ico/logo192ico.ico">
     </head>
     <body>
         <nav class="navbar">
@@ -53,42 +53,43 @@
         <br>
         <br>
         <br>
-        <h2>Request Summary</h2>
+        <div class="summary-container">
 
-        <!-- Student Info -->
-        <div class="student-info">
-            <p><strong>Name:</strong> <?= $fullname; ?></p>
-            <p><strong>Course:</strong> <?= $course; ?></p>
-            <p><strong>Student No:</strong> <?= $student_no; ?></p>
-        </div>
+            <h2>Request Summary</h2>
 
-        <hr>
-
-        <!-- Requested Items -->
-        <div class="items-list">
-        <?php 
-            while ($row = $result->fetch_assoc()): 
-            $subtotal = $row['price'] * $row['quantity'];
-            $total += $subtotal;
-        ?>
-            <div class="item-row">
-                <span><?= $row['name']; ?></span>
-                <span>Qty: <?= $row['quantity']; ?></span>
-                <span>₱<?= number_format($subtotal, 2); ?></span>
+            <!-- Student Info -->
+            <div class="card student-info">
+                <p><strong>Name:</strong> <?= $fullname; ?></p>
+                <p><strong>Course:</strong> <?= $course; ?></p>
+                <p><strong>Student No:</strong> <?= $student_no; ?></p>
             </div>
-        <?php endwhile; ?>
+
+            <!-- Items -->
+            <div class="card items-list">
+                <?php while ($row = $result->fetch_assoc()): 
+                    $subtotal = $row['price'] * $row['quantity'];
+                    $total += $subtotal;
+                ?>
+                    <div class="item-row">
+                        <span><?= $row['name']; ?></span>
+                        <span>Qty: <?= $row['quantity']; ?></span>
+                        <span>₱<?= number_format($subtotal, 2); ?></span>
+                    </div>
+                <?php endwhile; ?>
+            </div>
+
+            <!-- Total -->
+            <div class="total-box">
+                Total: ₱<?= number_format($total, 2); ?>
+            </div>
+
+            <!-- Buttons -->
+            <div class="button-group">
+                <button class="cancel-btn" onclick="cancelRequest()">Cancel</button>
+                <button class="submit-btn" onclick="submitRequest()">Submit</button>
+            </div>
+
         </div>
-
-        <hr>
-
-        <h3>Total: ₱<?= number_format($total, 2); ?></h3>
-
-        <br>
-
-        <button onclick="cancelRequest()">Cancel</button>
-
-        <button onclick="submitRequest()">Submit</button>
-
         <script>
         function cancelRequest() {
             if (confirm("Cancel request?")) {
@@ -98,21 +99,18 @@
 
         function submitRequest() {
             fetch("../submit_request.php")
-            .then(res => {
-                if (!res.ok) throw new Error("Server error: " + res.status);
-                return res.text();
-            })
-            .then(data => {
-                if (data.includes("<!DOCTYPE")) {
-                    throw new Error("Invalid response (probably wrong path)");
+            .then(res => res.json())
+            .then(data => { 
+                if (!data.success) {
+                    throw new Error("Server failed");
                 }
 
-                alert("Request Submitted!\nOR No: " + data);
+                alert("Request Submitted!\nOR No: " + data.or_number);
                 window.location.href = "/landingpage.html";
             })
             .catch(err => {
                 console.error(err);
-                alert("Submission failed. Check console.");
+                alert("Error submitting request. Please try again.");
             });
         }
         </script>

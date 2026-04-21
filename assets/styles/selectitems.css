@@ -58,6 +58,22 @@
     .item-grid {
         grid-template-columns: 1fr !important;
     }
+    body{
+        margin-top: 50rem;
+        height: 150vh;
+    }
+}
+@media (max-width: 1900px) {
+    body{
+        margin-top: 10rem;
+        height: 200vh;
+    }
+}
+@media (max-width: 3000px) {
+    body{
+        margin-top: 5rem;
+        height: 200vh;
+    }
 }
 
 .item-header {
