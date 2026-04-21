@@ -9,8 +9,21 @@ body{
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
-    height: 100vh;
+    height: 120vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    object-fit: cover;
+}
+
+/* 1. Clean up the universal selector */
+* {
+    box-sizing: border-box; /* Better for sizing than max-height */
+}
+
+/* 2. Fix the body */
+body {
+    background-attachment: fixed; /* Keeps image still while content scrolls */
+    /* Remove overflow: hidden unless you want to disable scrolling entirely */
+    overflow-x: hidden; 
 }

@@ -1,0 +1,9 @@
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    background: #2c3136;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    color: white;
+}

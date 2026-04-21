@@ -6,7 +6,7 @@ header("Content-Type: application/json");
 $host = "localhost";
 $user = "root";
 $pass = "1234";
-$db   = "plmun_db"; // 🔴 change this
+$db   = "plmun_db"; 
 
 $conn = new mysqli($host, $user, $pass, $db);
 
@@ -19,6 +19,9 @@ if ($conn->connect_error) {
 // GET POST DATA
 $student_no = $_POST['student_no'] ?? '';
 $instiemail = $_POST['instiemail'] ?? '';
+
+
+
 
 // VALIDATION (basic)
 if (empty($student_no) || empty($instiemail)) {
@@ -39,6 +42,8 @@ if ($result->num_rows > 0) {
 
     $_SESSION['validated'] = true;
     $_SESSION['student_no'] = $student_no;
+    $_SESSION['fullname'] = $row['fullname'];
+    $_SESSION['course'] = $row['course'];
 
     echo json_encode([
         "success" => true,

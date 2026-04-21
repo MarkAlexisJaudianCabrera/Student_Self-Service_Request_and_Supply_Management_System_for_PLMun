@@ -23,7 +23,10 @@ $_SESSION['student_no'] = '';
    <nav class="navbar">
         <a href="/landingpage.html"><img src="/assets/img/schl_logo-1.png" alt="Logo"></a>
     </nav>
-
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="request-container">
         <div class="title">
             <h3>Self-Service Request | Student Validation</h3>
