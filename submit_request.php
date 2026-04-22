@@ -4,7 +4,7 @@
     $session_id = session_id(); 
     
     // generate OR number 
-    $or_number = "OR-" . rand(100000, 999999); 
+    $or_number = "OR-" . time() . rand(100000, 999999); 
     
     // insert into request table 
     $fullname = $_SESSION['fullname']; 
@@ -13,6 +13,7 @@
 
     $total = 0;
     
+    // compute total
     $result = $conn->query("SELECT t.quantity, i.price FROM tempreqitemtb t JOIN itemtb i ON t.itemtbID = i.itemtbID WHERE t.session_id = '$session_id'");
     while ($row = $result->fetch_assoc()) {
         $total += $row['quantity'] * $row['price'];
@@ -21,11 +22,14 @@
     $request_id = $conn->insert_id; 
 
     // move items 
-    $conn->query("INSERT INTO request_items (request_id, itemtbID, quantity, price, subtotal) SELECT $request_id, t.itemtbID, t.quantity, i.price, (t.quantity * i.price) FROM tempreqitemtb t JOIN itemtb i ON t.itemtbID = i.itemtbID WHERE t.session_id = '$session_id'");$conn->query("DELETE FROM tempreqitemtb WHERE session_id = '$session_id'"); 
+    $conn->query("INSERT INTO request_items (request_id, itemtbID, quantity, price, subtotal) SELECT $request_id, t.itemtbID, t.quantity, i.price, (t.quantity * i.price) FROM tempreqitemtb t JOIN itemtb i ON t.itemtbID = i.itemtbID WHERE t.session_id = '$session_id'");
+    $conn->query("DELETE FROM tempreqitemtb WHERE session_id = '$session_id'"); 
     header('Content-Type: application/json');
 
     echo json_encode([
         "success" => true,
         "or_number" => $or_number
     ]);
-?>
+
+exit();
+?>  

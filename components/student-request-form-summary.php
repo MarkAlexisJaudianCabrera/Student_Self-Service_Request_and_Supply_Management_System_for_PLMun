@@ -15,6 +15,7 @@
     $fullname = $_SESSION['fullname'];
     $course = $_SESSION['course'];
     $student_no = $_SESSION['student_no'];
+    $email = $_SESSION['email']; // ✅ IMPORTANT
 
     $session_id = session_id();
 
@@ -48,7 +49,7 @@
     <body>
         <nav class="navbar">
             <a href="/landingpage.html"><img src="/assets/img/schl_logo-1.png" alt="Logo"></a>
-        </nav>
+        </nav>  
         <br>
         <br>
         <br>
@@ -86,7 +87,7 @@
             <!-- Buttons -->
             <div class="button-group">
                 <button class="cancel-btn" onclick="cancelRequest()">Cancel</button>
-                <button class="submit-btn" onclick="submitRequest()">Submit</button>
+                <button class="submit-btn" onclick="submitRequest();">Submit</button>
             </div>
 
         </div>
@@ -104,13 +105,13 @@
                 if (!data.success) {
                     throw new Error("Server failed");
                 }
-
                 alert("Request Submitted!\nOR No: " + data.or_number);
                 window.location.href = "/landingpage.html";
             })
             .catch(err => {
                 console.error(err);
                 alert("Error submitting request. Please try again.");
+                window.location.href = "/landingpage.html";
             });
         }
         </script>

@@ -2,6 +2,7 @@
 session_start();
 $_SESSION['validated'] = false;
 $_SESSION['student_no'] = '';
+$_SESSION['email'] = '';
 ?>
 <!DOCTYPE html>
 <html lang="en">

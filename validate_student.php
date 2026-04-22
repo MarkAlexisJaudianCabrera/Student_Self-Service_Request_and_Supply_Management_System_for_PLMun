@@ -44,6 +44,7 @@ if ($result->num_rows > 0) {
     $_SESSION['student_no'] = $student_no;
     $_SESSION['fullname'] = $row['fullname'];
     $_SESSION['course'] = $row['course'];
+    $_SESSION['email'] = $instiemail;
 
     echo json_encode([
         "success" => true,
