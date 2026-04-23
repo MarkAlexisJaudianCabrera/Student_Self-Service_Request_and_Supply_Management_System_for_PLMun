@@ -1,0 +1,1 @@
+yung index, "/landingpage.html" :>
