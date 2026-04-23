@@ -1,5 +1,8 @@
 <?php
-    include('../../config/db.php');
+    $conn = new mysqli("localhost", "root", "1234", "plmun_db");
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 
     if (isset($_POST['add'])) {
         $u = $_POST['username'];

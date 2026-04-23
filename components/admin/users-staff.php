@@ -42,6 +42,7 @@
             <tr>
                 <td><?= $row['username'] ?></td>
                 <td><?= $row['role'] ?></td>
+                <td><?= $row['password'] ?></td>
                 <td>
                     <a href="actions/user_action.php?delete=<?= $row['id'] ?>">Delete</a>
                 </td>

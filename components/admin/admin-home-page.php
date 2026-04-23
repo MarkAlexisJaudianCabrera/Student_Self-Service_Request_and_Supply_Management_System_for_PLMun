@@ -48,9 +48,9 @@
                 <h2>Admin Dashboard</h2>
                 <h4 class="border-bt">Welcome to the Admin Dashboard</h4>
                 <div>
-                    <p>Total Requests: <?= $totalRequests ?></p>
-                    <p>Total Students: <?= $totalStudents ?></p>
-                    <p>Total Items: <?= $totalItems ?></p>
+                    <p>Total Submitted Requests: <?= $totalRequests ?></p>
+                    <p>Total Students Enrolled: <?= $totalStudents ?></p>
+                    <p>Total Items Registered: <?= $totalItems ?></p>
                 </div>
             </div>
                 <br>

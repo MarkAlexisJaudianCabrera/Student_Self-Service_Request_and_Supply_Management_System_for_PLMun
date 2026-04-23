@@ -31,7 +31,7 @@
                     <tr>
                         <td><?= $row['or_number'] ?></td>
                         <td><?= $row['status'] ?></td>
-
+                        <td><?= $row['student_no'] ?></td>
                         <td>
                             <form method="POST" action="actions/request_action.php">
                                 <input type="hidden" name="id" value="<?= $row['request_id'] ?>">

@@ -1,58 +1,62 @@
 <?php
-    session_start();
-    $_SESSION['staffvalidated'] = false;
-    $_SESSION['user_type'] = null;
+session_start();
+include('./config/db.php');
 
-    include('./config/db.php');
+$_SESSION['staffvalidated'] = false;
+$_SESSION['user_type'] = null;
 
-    $error = false;
-    $isPost = ($_SERVER["REQUEST_METHOD"] === "POST");
+$error = false;
+$isPost = ($_SERVER["REQUEST_METHOD"] === "POST");
 
-    if ($isPost) {
+if ($isPost) {
 
-        $user = trim($_POST['username'] ?? '');
-        $pass = trim($_POST['password'] ?? '');
+    $user = trim($_POST['username'] ?? '');
+    $pass = trim($_POST['password'] ?? '');
 
-        if ($user === "" || $pass === "") {
-            $error = true;
-        } else {
+    if ($user === "" || $pass === "") {
+        $error = true;
+    } else {
 
-            $res = $conn->query("SELECT * FROM users 
-            WHERE username='$user' AND password='$pass'");
+        $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+        $stmt->bind_param("s", $user);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-            if ($res->num_rows > 0) {
-                $row = $res->fetch_assoc();
+        $row = $result->fetch_assoc();
 
-                if ($row['role'] == "registrar") {
-                    $_SESSION['staffvalidated'] = true;
-                    $_SESSION['user_type'] = 'registrar';
+        if ($row && password_verify($pass, $row['password'])) {
+
+            $_SESSION['staffvalidated'] = true;
+            $_SESSION['user_type'] = $row['role'];
+
+            switch ($row['role']) {
+                case 'registrar':
                     header("Location: /components/registrar/registrar-home-page.php");
-                    exit();
-                }
-                if ($row['role'] == "cashier") {
-                    $_SESSION['staffvalidated'] = true;
-                    $_SESSION['user_type'] = 'cashier'; 
+                    break;
+
+                case 'cashier':
                     header("Location: /components/cashier/request-payment-page.php");
-                    exit();
-                }
-                if ($row['role'] == "business") {
-                    $_SESSION['staffvalidated'] = true;
-                    $_SESSION['user_type'] = 'business';
+                    break;
+
+                case 'business':
                     header("Location: /components/businesscenter/business-center-home-page.php");
-                    exit();
-                }
-                if ($row['role'] == "admin") {
-                    $_SESSION['staffvalidated'] = true;
-                    $_SESSION['user_type'] = 'admin';
+                    break;
+
+                case 'admin':
                     header("Location: /components/admin/admin-home-page.php");
-                    exit();
-                }
-            } else {
-                $_SESSION['staffvalidated'] = false;
-                $error = true; // invalid login
+                    break;
+
+                default:
+                    $_SESSION['staffvalidated'] = false;
+                    $error = true;
             }
+            exit();
+
+        } else {
+            $error = true;
         }
     }
+}
 ?>
 <!DOCTYPE html>
     <html lang="en">
