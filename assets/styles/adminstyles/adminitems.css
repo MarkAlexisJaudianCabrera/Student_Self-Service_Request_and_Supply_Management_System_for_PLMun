@@ -1,0 +1,93 @@
+.adminitems-megacontainer {
+    display: flex;
+    flex-direction: column; 
+    background: #2c3136;
+    padding: 40px;
+    margin: 100px auto;
+    gap: 20px;
+    color: #fff;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.adminitems-megacontainer h2 {
+    color: #2ecc71;
+    font-size: 28px;
+    margin-bottom: 10px 20px;
+}
+.adminitems-megacontainer p {
+    border-bottom: #2ecc71 2px solid;
+    padding-bottom: 1rem;
+    width: 100%;
+}
+.adminitems-megacontainer form {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.adminitems-megacontainer form input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+}
+.adminitems-megacontainer form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2ecc71;
+    color: #fff;
+    cursor: pointer;
+}
+.adminitems-megacontainer table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+.adminitems-megacontainer table th, .adminitems-megacontainer table td {
+    border: 2px solid #000;
+    padding: 8px;
+    text-align: left;
+}
+.adminitems-megacontainer table th {
+    background-color: #2c3136;
+    color: #fff;
+}
+.adminitems-megacontainer table tr:nth-child(even) {
+    background-color: #666966;
+}
+.adminitems-megacontainer table tr:hover {
+    background-color: #4CAF50;
+    cursor: pointer;
+}
+.adminitems-megacontainer table td:last-child {
+    text-align: center;
+}
+.adminitems-megacontainer table a{
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff0000;
+    margin: 1.5rem 0;
+    color: #fff;
+    text-decoration: none;
+}
+.adminitems-megacontainer table td:last-child button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e74c3c;
+    color: #fff;
+    cursor: pointer;
+}
+.adminitems-megacontainer table td:last-child button:hover {
+    background-color: #c0392b;
+}
+.adminitems-megacontainer table td:last-child button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+.adminitems-megacontainer table td:last-child button:disabled:hover {
+    background-color: #95a5a6;
+}

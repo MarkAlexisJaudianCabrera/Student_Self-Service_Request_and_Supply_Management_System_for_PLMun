@@ -19,6 +19,7 @@ $_SESSION['email'] = '';
     <link rel="icon" href="/assets/ico/logo32ico.ico" >
     <link rel="icon" href="/assets/ico/logo96ico.ico" >
     <link rel="icon" href="/assets/ico/logo192ico.ico"> 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
    <nav class="navbar">

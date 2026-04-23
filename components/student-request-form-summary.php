@@ -45,6 +45,7 @@
         <link rel="icon" href="/assets/ico/logo32ico.ico" >
         <link rel="icon" href="/assets/ico/logo96ico.ico" >
         <link rel="icon" href="/assets/ico/logo192ico.ico">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <body>
         <nav class="navbar">
@@ -87,7 +88,7 @@
             <!-- Buttons -->
             <div class="button-group">
                 <button class="cancel-btn" onclick="cancelRequest()">Cancel</button>
-                <button class="submit-btn" onclick="submitRequest();">Submit</button>
+                <button class="submit-btn" onclick="submitRequest(this);">Submit</button>
             </div>
 
         </div>
@@ -98,20 +99,29 @@
             }
         }
 
-        function submitRequest() {
-            fetch("../submit_request.php")
+        function submitRequest(btn) {
+            btn.disabled = true;
+            btn.innerText = "Submitting...";
+            fetch("../submit_request.php",{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({})
+            })
             .then(res => res.json())
             .then(data => { 
                 if (!data.success) {
                     throw new Error("Server failed");
                 }
-                alert("Request Submitted!\nOR No: " + data.or_number);
-                window.location.href = "/landingpage.html";
+                Swal.fire({ title: "Request Submitted!", text: "OR No: " + data.or_number }).then((result) => { if (result.isConfirmed) {window.location.href = '/landingpage.html'; } });
             })
             .catch(err => {
-                console.error(err);
-                alert("Error submitting request. Please try again.");
-                window.location.href = "/landingpage.html";
+                console.error("Fetch Error:", err);
+                Swal.fire({ title: "Unable to submit request", text: "Please resubmit again.", confirmButtonText: "OK" });
+
+                btn.disabled = false;
+                btn.innerText = "Submit";
             });
         }
         </script>

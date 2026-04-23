@@ -21,7 +21,7 @@ function validateStudent(event) {
     .then(data => {
         const proceedBtn = document.getElementById("proceedBtn");
 
-        if (data.fullname) {
+        if (data.success==true) {
             document.getElementById("fnresult").value = data.fullname;
             document.getElementById("courseresult").value = data.course;
             proceedBtn.classList.add("show");
@@ -30,7 +30,7 @@ function validateStudent(event) {
             document.getElementById("fnresult").value = "";
             document.getElementById("courseresult").value = "";
             proceedBtn.classList.remove("show");
-            alert("Invalid student");
+            Swal.fire({ title: "Invalid Student", text: "Please check your details and try again.", confirmButtonText: "Retry" });
         }
     })
     .catch(error => {

@@ -1,0 +1,76 @@
+/* login form styles */
+@media (max-width: 768px) {
+    body{
+        height: 120vh;
+    }
+}
+@media (max-width: 1900px) {
+    body{
+        height: 150vh;
+    }
+}
+
+.request-row { 
+    cursor: pointer; 
+}
+        
+.request-row.selected { 
+    background: #2ecc71; 
+    color: #fff;
+}
+.request-row.selected .grn-font {
+    color: #fff !important;
+}
+
+.items-box { 
+    font-size: 13px; color: #444; 
+}
+
+.registrar-pending-container #reg-h2-style{
+    text-align: center;
+    color: #2ecc71 !important;
+}
+
+.registrar-pending-container p{
+    text-align: center;
+    color: #fff !important;
+    padding-bottom: 1rem;
+}
+
+.registrar-pending-container .border-top{
+    border-top: 1px solid #2ecc71;
+    width: 100%;
+}
+
+.registrar-pending-container {
+    display: flex;
+    flex-direction: column; 
+    max-width: 100%;
+    margin: 100px auto;
+    gap: 20px;
+
+    background: #2c3136;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 90%;
+    text-align: center;
+}
+
+.registrar-pending-container table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #343638;
+    border-radius: 8px;
+    overflow-y: scroll;
+    height: 400px;
+    color: #fff;
+}
+
+.grn-font {
+    color: #2ecc71 !important;
+}
+.wht-font {
+    color: #fff !important;
+}
+

@@ -1,6 +1,7 @@
 <?php
     session_start();
     $_SESSION['staffvalidated'] = false;
+    $_SESSION['user_type'] = null;
 
     include('./config/db.php');
 
@@ -24,21 +25,25 @@
 
                 if ($row['role'] == "registrar") {
                     $_SESSION['staffvalidated'] = true;
+                    $_SESSION['user_type'] = 'registrar';
                     header("Location: /components/registrar/registrar-home-page.php");
                     exit();
                 }
                 if ($row['role'] == "cashier") {
                     $_SESSION['staffvalidated'] = true;
+                    $_SESSION['user_type'] = 'cashier'; 
                     header("Location: /components/cashier/request-payment-page.php");
                     exit();
                 }
                 if ($row['role'] == "business") {
                     $_SESSION['staffvalidated'] = true;
+                    $_SESSION['user_type'] = 'business';
                     header("Location: /components/businesscenter/business-center-home-page.php");
                     exit();
                 }
                 if ($row['role'] == "admin") {
                     $_SESSION['staffvalidated'] = true;
+                    $_SESSION['user_type'] = 'admin';
                     header("Location: /components/admin/admin-home-page.php");
                     exit();
                 }

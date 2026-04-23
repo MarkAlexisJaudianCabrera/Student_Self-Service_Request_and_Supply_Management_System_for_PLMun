@@ -2,6 +2,7 @@
 @media (max-width: 768px) {
     body{
         height: 120vh;
+        margin-top: 50rem !important;
     }
 }
 @media (max-width: 1900px) {

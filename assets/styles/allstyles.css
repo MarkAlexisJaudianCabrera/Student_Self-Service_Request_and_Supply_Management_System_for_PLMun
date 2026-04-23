@@ -16,10 +16,99 @@ body{
     object-fit: cover;
 }
 
-/* 2. Fix the body */
 body {
-    background-attachment: fixed; /* Keeps image still while content scrolls */
-    /* Remove overflow: hidden unless you want to disable scrolling entirely */
+    background-attachment: fixed;
     overflow-x: hidden; 
 }
 
+.btn-default-style{
+    background: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+}
+.btn-default-style:hover {
+    background: #45a049;
+    cursor: pointer;
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+
+/*left navbar para sa staffs*/
+/* ===== LEFT SIDEBAR ===== */
+.left-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10%;
+    height: 100vh;
+    background: #212529;
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.left-navbar h3 {
+    color: white;
+}
+
+.left-navbar a {
+    font-size: 90%;
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.08);
+}
+
+.left-navbar a:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* ===== HAMBURGER ===== */
+.hamburger {
+    background: rgba(255,255,255,0.2);
+    border-radius: .5rem;
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 35px;
+    height: 30px;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1000;
+    margin-top: 50px;
+}
+.hamburger:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.hamburger div {
+    height: 4px;
+    background: #111;
+    border-radius: 5px;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+
+    .left-navbar {
+        transform: translateX(-100%);
+    }
+
+    .left-navbar.active {
+        transform: translateX(0);
+        width: 20%;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
