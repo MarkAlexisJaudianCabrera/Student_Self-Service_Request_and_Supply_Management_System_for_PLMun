@@ -4,7 +4,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    /* ===== UPDATE STATUS ===== */
+    /* UPDATE STATUS */
     if (isset($_POST['update'])) {
 
         $id = $_POST['id'];
@@ -19,7 +19,7 @@
         $stmt->execute();
     }
 
-    /* ===== DELETE REQUEST ===== */
+    /* DELETE REQUEST */
     if (isset($_GET['delete'])) {
 
         $id = $_GET['delete'];

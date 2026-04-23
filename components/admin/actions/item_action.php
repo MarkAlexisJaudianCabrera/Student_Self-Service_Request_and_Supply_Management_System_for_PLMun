@@ -4,7 +4,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    /* ===== ADD ITEM ===== */
+    /* ADD ITEM */
     if (isset($_POST['add'])) {
 
         $id   = $_POST['itemtbID'];
@@ -22,7 +22,7 @@
         $stmt->execute();
     }
 
-    /* ===== EDIT ITEM ===== */
+    /* EDIT ITEM */
     if (isset($_POST['edit'])) {
 
         $id   = $_POST['itemtbID'];
@@ -41,7 +41,7 @@
         $stmt->execute();
     }
 
-    /* ===== DELETE ITEM ===== */
+    /* DELETE ITEM */
     if (isset($_GET['delete'])) {
 
         $id = $_GET['delete'];
