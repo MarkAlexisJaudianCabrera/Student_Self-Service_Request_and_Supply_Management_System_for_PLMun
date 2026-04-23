@@ -27,12 +27,10 @@
     $conn->query("INSERT INTO requesttb (or_number, student_no, fullname, course, total_amount)VALUES ('$or_number', '$student_no', '$fullname', '$course', '$total')");
     $request_id = $conn->insert_id; 
 
-    // move items 
+    // move items from tempreqitemtb to request_items
     $conn->query("INSERT INTO request_items (request_id, itemtbID, quantity, price, subtotal) SELECT $request_id, t.itemtbID, t.quantity, i.price, (t.quantity * i.price) FROM tempreqitemtb t JOIN itemtb i ON t.itemtbID = i.itemtbID WHERE t.session_id = '$session_id'");
     $conn->query("DELETE FROM tempreqitemtb WHERE session_id = '$session_id'"); 
     
-    //header('Content-Type: application/json');
-    //$or_numberr = $or_number; // Store OR number in a variable for email function 
     sendNotificationEmail($or_number);
 
     ob_clean();

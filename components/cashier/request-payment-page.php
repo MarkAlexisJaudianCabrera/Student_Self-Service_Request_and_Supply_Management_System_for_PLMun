@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $_SESSION['user_type']; //
+    $_SESSION['user_type'];
     if (!isset($_SESSION['staffvalidated']) || $_SESSION['staffvalidated'] !== true) {
         header("Location: /404.php");
         exit();

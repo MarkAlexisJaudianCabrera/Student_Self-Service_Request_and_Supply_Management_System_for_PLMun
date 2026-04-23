@@ -15,7 +15,7 @@
     $fullname = $_SESSION['fullname'];
     $course = $_SESSION['course'];
     $student_no = $_SESSION['student_no'];
-    $email = $_SESSION['email']; // ✅ IMPORTANT
+    $email = $_SESSION['email']; 
 
     $session_id = session_id();
 

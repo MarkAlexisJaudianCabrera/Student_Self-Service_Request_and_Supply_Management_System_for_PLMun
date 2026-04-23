@@ -49,7 +49,7 @@
                 }
             } else {
                 $_SESSION['staffvalidated'] = false;
-                $error = true; // wrong login
+                $error = true; // invalid login
             }
         }
     }

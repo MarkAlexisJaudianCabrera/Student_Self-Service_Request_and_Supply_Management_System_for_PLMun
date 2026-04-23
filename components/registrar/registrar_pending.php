@@ -65,6 +65,7 @@ while ($row = $result->fetch_assoc()) {
 <div class="registrar-pending-container">
     <h2 id="reg-h2-style">Pending Requests - Registrar</h2>
     <p>Select a request to view its details.</p>
+    
     <!-- REJECT MODAL -->
     <div id="rejectModal" style="display:none;">
         <textarea id="rejectNote" placeholder="Optional reason..."></textarea>
@@ -138,7 +139,6 @@ function closeReject() {
 }
 
 function process(action) {
-
     if (selected.length === 0) {
         Swal.fire({ title: "No Requests Selected", text: "Please select at least one request.", confirmButtonText: "OK" });
         return;

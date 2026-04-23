@@ -2,7 +2,6 @@
 session_start();
 header("Content-Type: application/json");
 
-// DATABASE CONNECTION
 $host = "localhost";
 $user = "root";
 $pass = "1234";
@@ -10,26 +9,20 @@ $db   = "plmun_db";
 
 $conn = new mysqli($host, $user, $pass, $db);
 
-// Check connection
 if ($conn->connect_error) {
     echo json_encode(["error" => "Database connection failed"]);
     exit();
 }
 
-// GET POST DATA
 $student_no = $_POST['student_no'] ?? '';
 $instiemail = $_POST['instiemail'] ?? '';
 
-
-
-
-// VALIDATION (basic)
+// VALIDATION
 if (empty($student_no) || empty($instiemail)) {
     echo json_encode(["error" => "Missing input"]);
     exit();
 }
 
-// PREPARED STATEMENT (SAFE)
 $sql = "SELECT fullname, course FROM students WHERE student_no = ? AND instiemail = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ss", $student_no, $instiemail);
@@ -64,4 +57,3 @@ if ($result->num_rows > 0) {
 $stmt->close();
 $conn->close();
 ?>
-

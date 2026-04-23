@@ -86,7 +86,7 @@
             .then(res => res.text())
             .then(data => {
                 document.getElementById("temp-items-list").innerHTML = data;
-                attachDeleteEvents(); // 👈 IMPORTANT
+                attachDeleteEvents(); 
             });
         }
 
@@ -105,7 +105,7 @@
                     .then(res => res.text())
                     .then(data => {
                         if (data.trim() === "success") {
-                            loadTempItems(); // refresh list
+                            loadTempItems(); // taga refresh ng list
                         }
                     });
                 };

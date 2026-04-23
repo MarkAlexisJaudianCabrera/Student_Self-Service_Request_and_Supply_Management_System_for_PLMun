@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $itemtbID = $_POST['itemtbID'];
     $qty = $_POST['qty'];
 
-    // optional: track per user/session
+    // para ma-track ung session per user
     $session_id = session_id();
 
     $stmt = $conn->prepare("

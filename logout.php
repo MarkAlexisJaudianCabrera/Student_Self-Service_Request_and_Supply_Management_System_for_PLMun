@@ -1,9 +1,9 @@
 <?php
-session_start();
+    session_start();
 
-$_SESSION = [];
-session_unset();
-session_destroy();
+    $_SESSION = [];
+    session_unset();
+    session_destroy();
 
-header("Location: /landingpage.html");
-exit;
+    header("Location: /landingpage.html");
+    exit;

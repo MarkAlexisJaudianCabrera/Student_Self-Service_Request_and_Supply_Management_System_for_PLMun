@@ -3,7 +3,7 @@ function validateStudent(event) {
 
     const btn = document.getElementById("checkBtn");
 
-    // 🔄 LOADING STATE
+    // para hindi magspam ng check button
     btn.disabled = true;
     btn.innerText = "Checking...";
 
@@ -37,7 +37,7 @@ function validateStudent(event) {
         console.error("Fetch error:", error);
     })
     .finally(() => {
-        // 🔙 RESTORE BUTTON
+        // para if hindi masubmit pwede isubmit ulit
         btn.disabled = false;
         btn.innerText = "Check Validity";
     });

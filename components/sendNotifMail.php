@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\Exception;
 require __DIR__.'/PHPMailer/src/PHPMailer.php';
 require __DIR__.'/PHPMailer/src/SMTP.php';
 require __DIR__.'/PHPMailer/src/Exception.php';
-// ✅ EMAIL FUNCTION
+
 function sendNotificationEmail($or_number) {
     $mail = new PHPMailer(true);
 
@@ -40,6 +40,7 @@ function sendNotificationEmail($or_number) {
     }
 }
 
+// ififix pa bakit ayaw magsend ng gmail :(
 function sendApprovalEmail($or_number, $email) {
 
     $mail = new PHPMailer(true);
@@ -72,6 +73,7 @@ function sendApprovalEmail($or_number, $email) {
     }
 }
 
+// ififix pa bakit ayaw magsend ng gmail :(
 function sendRejectionEmail($or_number, $email, $note) {
 
     $mail = new PHPMailer(true);
