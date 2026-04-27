@@ -27,29 +27,39 @@
             <p>Manage and update student requests</p>
             <div class="adminreq-table">
                 <table border="1">
-                <?php while($row = $result->fetch_assoc()): ?>
                     <tr>
-                        <td><?= $row['or_number'] ?></td>
-                        <td><?= $row['status'] ?></td>
-                        <td><?= $row['student_no'] ?></td>
-                        <td>
-                            <form method="POST" action="actions/request_action.php">
-                                <input type="hidden" name="id" value="<?= $row['request_id'] ?>">
-                                <select name="status">
-                                    <option>Pending</option>
-                                    <option>Unpaid</option>
-                                    <option>Paid</option>
-                                    <option>Completed</option>
-                                    <option>Rejected</option>
-                                </select>
-                                <button name="update">Update</button>
-                            </form>
-
-                            <a href="actions/request_action.php?delete=<?= $row['request_id'] ?>">Delete</a>
-                        </td>
+                        <th class="grn-font">Official Receipt</th>
+                        <th>Status</th>
+                        <th>Student Number</th>
+                        <th>Full Name</th>
+                        <th>Course</th>
+                        <th>Update Status</th>
                     </tr>
-                <?php endwhile; ?>
-            </table>
+                    <?php while($row = $result->fetch_assoc()): ?>
+                        <tr>
+                            <td><?= $row['or_number'] ?></td>
+                            <td><?= $row['status'] ?></td>
+                            <td><?= $row['student_no'] ?></td>
+                            <td><?= $row['fullname'] ?></td>
+                            <td><?= $row['course'] ?></td>
+                            <td>
+                                <form method="POST" action="actions/request_action.php">
+                                    <input type="hidden" name="id" value="<?= $row['request_id'] ?>">
+                                    <select name="status">
+                                        <option>Pending</option>
+                                        <option>Unpaid</option>
+                                        <option>Paid</option>
+                                        <option>Completed</option>
+                                        <option>Rejected</option>
+                                    </select>
+                                    <button name="update">Update</button>
+                                </form>
+
+                                <a href="actions/request_action.php?delete=<?= $row['request_id'] ?>">Delete</a>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                </table>
             </div>
         </div>
      </body>

@@ -18,10 +18,10 @@
             <?php
             if ($_SESSION['user_type'] === 'registrar') {
                 echo '<a href="./registrar-home-page.php">Accept Request</a>';
-                echo '<a href="#">Claiming Item</a>';
+                echo '<a href="./registrar-claim-page.php">Claim Request</a>';
             } elseif ($_SESSION['user_type'] === 'business') {
                 echo '<a href="./business-center-home-page.php">Accept Request</a>';
-                echo '<a href="#">Claiming Item</a>';
+                echo '<a href="./business-center-claim-page.php">Claim Request</a>';
             }
             elseif ($_SESSION['user_type'] === 'admin') {
                 echo '<a href="./admin-home-page.php">Home Page</a>';

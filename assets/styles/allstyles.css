@@ -112,3 +112,9 @@ body {
         display: flex;
     }
 }
+
+.blue-btn{
+    background-color: #179c9c;
+}.blue-btn:hover{
+    background-color: #01afaf;
+}

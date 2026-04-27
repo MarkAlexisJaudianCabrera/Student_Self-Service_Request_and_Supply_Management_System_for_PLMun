@@ -56,9 +56,9 @@
                 <br>
             <div class="analytics-container">
                 <h2>Analytics (<?= $category ?>)</h2>
-                <p class="border-bt">Analysis of <?= $category ?> items</p><br>
-                <a class="btn-default-style adminhp-btn" href="?category=acaditem">Academic</a> 
-                <a class="btn-default-style adminhp-btn" href="?category=suppitem">Supply</a>
+                <p class="border-bt">Analysis of <b><?= $category ?></b> items</p><br>
+                <a class="btn-default-style adminhp-btn" href="?category=acaditem">Academic Items</a> 
+                <a class="btn-default-style adminhp-btn" href="?category=suppitem">Supply Items</a>
                 <br> <br>
                 <div class="analytics-table">
                     <table border="1">
