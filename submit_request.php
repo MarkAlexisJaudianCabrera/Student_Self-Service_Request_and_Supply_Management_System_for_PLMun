@@ -29,6 +29,7 @@
 
     // move items from tempreqitemtb to request_items
     $conn->query("INSERT INTO request_items (request_id, itemtbID, quantity, price, subtotal) SELECT $request_id, t.itemtbID, t.quantity, i.price, (t.quantity * i.price) FROM tempreqitemtb t JOIN itemtb i ON t.itemtbID = i.itemtbID WHERE t.session_id = '$session_id'");
+    
     $conn->query("DELETE FROM tempreqitemtb WHERE session_id = '$session_id'"); 
     
     sendNotificationEmail($or_number, $_SESSION['email'], 'PENDING', 'WAIT FOR NOTIFICATION THAT ACCEPTS THIS REQUEST', 'SUBMITTED');
@@ -36,6 +37,7 @@
     ob_clean();
     echo json_encode([
         "success" => true,
-        "or_number" => $or_number
+        "or_number" => $or_number,
+        "qr_data" => $or_number
     ]);
     exit();

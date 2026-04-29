@@ -222,4 +222,18 @@
     font-weight: bold;
     color: #fff;
 }
+.dsply {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+.top {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.bottom {
+    padding: 10px;
+}   

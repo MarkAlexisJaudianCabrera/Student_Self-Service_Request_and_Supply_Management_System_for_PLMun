@@ -53,8 +53,21 @@
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    width: 90%;
+    width: 50%;
     text-align: center;
+}
+.business-center-pending-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* For Firefox */
+.business-center-pending-container {
+    scrollbar-width: none;
+}
+
+/* For IE and Edge */
+.business-center-pending-container {
+    -ms-overflow-style: none;
 }
 
 .business-center-pending-container table {
@@ -67,6 +80,8 @@
 }
 .business-center-pending-table{
     height: 400px;
+    
+    overflow-x: scroll;
 }
 
 .grn-font {

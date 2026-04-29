@@ -12,7 +12,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $result = $conn->query("SELECT * FROM itemtb");
+    $result = $conn->query("SELECT * FROM itemtb WHERE stock_quantity > 0");
 ?>
 <!DOCTYPE html>
     <html lang="en">
@@ -53,11 +53,11 @@
                         data-name="<?= htmlspecialchars($row['name']); ?>"
                         data-price="<?= $row['price']; ?>"
                         data-itemrole="<?= htmlspecialchars($row['category']); ?>"
-                    >
+                        data-description="<?= htmlspecialchars($row['description']); ?>"
+                        >
                         <div class="item-header">
                             <div class="text">
                                 <h4><?= htmlspecialchars($row['name']); ?></h4>
-                                <p><?= htmlspecialchars($row['description']); ?></p>
                             </div>
                             <p><?= htmlspecialchars("P" . number_format($row['price'], 2)); ?></p>
                             <i class="fa-solid fa-square-plus"></i>
@@ -68,7 +68,7 @@
             <label for="" id="temp-items-list-label">Requested Items:</label>
             <div id="temp-items-list"></div>
             <button id="request-all-btn">Request All Item(s)</button>
-        </div>
+        </div> 
         <script>
         document.getElementById("request-all-btn").onclick = function () {
             const container = document.getElementById("temp-items-list");
@@ -121,6 +121,7 @@
 
                     const id = this.dataset.id;
                     const name = this.dataset.name;
+                    const description = this.dataset.description;
 
                     const container = document.getElementById("selected-items");
                     container.innerHTML = "";
@@ -129,14 +130,22 @@
                     item.classList.add("selected-item");
 
                     item.innerHTML = `
-                        <span class="item-name">${name}</span>
-                        <div class="qty-control">
-                            <p></p>
-                            <i class="fa-solid fa-minus minus"></i>
-                            <span class="qty">1</span>
-                            <i class="fa-solid fa-plus plus"></i>
+                        <div class="dsply">
+                            <div class="top">
+                                <span class="item-name">${name}</span>
+                                <div class="qty-control">
+                                    <p></p>
+                                    <i class="fa-solid fa-minus minus"></i>
+                                    <span class="qty">1</span>
+                                    <i class="fa-solid fa-plus plus"></i>
+                                </div>
+                                <button class="ok-btn">OK</button>
+                            </div>
+                            <div class="bottom">
+                                <h4 class="grn-font">[REQUEST PROCESS]</h4>
+                                <p class="item-description">${description}</p>
+                            </div>
                         </div>
-                        <button class="ok-btn">OK</button>
                     `;
 
                     container.appendChild(item);

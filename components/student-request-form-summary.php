@@ -114,11 +114,28 @@
                 if (!data.success) {
                     throw new Error("Server failed");
                 }
-                Swal.fire({ title: "Request Submitted!", text: "OR No: " + data.or_number }).then((result) => { if (result.isConfirmed) {window.location.href = '/landingpage.html'; } });
+                let qrUrl = "https://quickchart.io/qr?text=" + encodeURIComponent(data.or_number);
+                Swal.fire({
+                    title: "Request Submitted!",
+                    html: `
+                        <p><strong>OR No:</strong> ${data.or_number}</p>
+                        <img src="${qrUrl}" style="width:200px;height:200px;margin-top:10px;">
+                        <p>Note: Screenshot QR Code as your reference.</p>
+                    `,
+                    confirmButtonText: "OK"
+                }).then((result) => { 
+                    if (result.isConfirmed) {
+                        window.location.href = '/landingpage.html'; 
+                    } 
+                });
             })
             .catch(err => {
                 console.error("Fetch Error:", err);
-                Swal.fire({ title: "Unable to submit request", text: "Please resubmit again.", confirmButtonText: "OK" });
+                Swal.fire({ 
+                    title: "Unable to submit request", 
+                    text: "Please resubmit again.", 
+                    confirmButtonText: "OK" 
+                });
 
                 btn.disabled = false;
                 btn.innerText = "Submit";

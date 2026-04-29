@@ -23,7 +23,7 @@ function sendNotificationEmail($or_number, $email, $status, $note, $resStatus) {
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
-        $mail->setFrom('plmunselfservicerequest@gmail.com', 'PLMUN Request System - Submitted Request');
+        $mail->setFrom('plmunselfservicerequest@gmail.com', 'PLMUN Request System');
         $mail->addAddress($email);
 
         $mail->isHTML(true);

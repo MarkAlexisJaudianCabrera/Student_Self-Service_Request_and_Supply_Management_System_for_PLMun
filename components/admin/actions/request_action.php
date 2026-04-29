@@ -56,7 +56,6 @@
     /* DELETE REQUEST */
     if (isset($_GET['delete'])) {
 
-        $id = $_POST['id'];
         $id = $_GET['delete'];
 
         $stmt1 = $conn->prepare("SELECT a.or_number, b.instiemail FROM requesttb a JOIN students b ON a.student_no = b.student_no WHERE a.request_id=?");

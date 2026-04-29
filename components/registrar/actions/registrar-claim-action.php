@@ -31,7 +31,7 @@
         switch ($status){
         
             case 'Completed':
-                $note = 'THIS REQUEST WAS ACCEPTED BY REGISTRAR, YOU MAY NOW PROCEED FOR THE PAYMENT AT UNIVERSITY CASHIER';
+                $note = 'THIS REQUEST WAS DECLARED AS COMPLETED BY REGISTRAR, THANK YOU';
                 break;
         }
 
