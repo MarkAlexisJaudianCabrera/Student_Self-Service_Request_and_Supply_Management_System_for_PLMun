@@ -67,7 +67,9 @@
 }
 .business-center-pending-table{
     height: 400px;
-    overflow-x: scroll;
+    overflow-x: auto;
+    scrollbar-width: thin; 
+    scrollbar-color: #888 #3a4046;
 }
 
 .grn-font {
