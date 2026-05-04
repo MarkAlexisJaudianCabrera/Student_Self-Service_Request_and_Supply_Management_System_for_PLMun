@@ -91,3 +91,6 @@
 .adminitems-megacontainer table td:last-child button:disabled:hover {
     background-color: #95a5a6;
 }
+.edit-btn{
+    background-color: #2ecc71 !important;
+}
