@@ -47,6 +47,11 @@
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 15px;
     width: 100%;
+    height: 15rem;
+    max-width: 500px;
+    overflow-y: auto;
+    scrollbar-width: thin; 
+    scrollbar-color: #888 #3a4046;
 }
 
 .item-btn {

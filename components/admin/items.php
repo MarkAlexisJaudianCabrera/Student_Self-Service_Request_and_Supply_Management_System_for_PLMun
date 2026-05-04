@@ -2,6 +2,17 @@
 session_start();
 include('../../config/db.php');
 $result = $conn->query("SELECT * FROM itemtb");
+
+$editData = null;
+
+if (isset($_GET['edit'])) {
+    $id = $_GET['edit'];
+    $stmt = $conn->prepare("SELECT * FROM itemtb WHERE itemtbID=?");
+    $stmt->bind_param("s", $id);
+    $stmt->execute();
+    $resultEdit = $stmt->get_result();
+    $editData = $resultEdit->fetch_assoc();
+}
 ?>
 <!DOCTYPE html>
     <html lang="en">
@@ -16,6 +27,7 @@ $result = $conn->query("SELECT * FROM itemtb");
         <link rel="icon" type="image/x-icon" href="/assets/ico/logo32ico.ico" >
         <link rel="icon" type="image/x-icon" href="/assets/ico/logo96ico.ico" >
         <link rel="icon" type="image/x-icon" href="/assets/ico/logo192ico.ico" >
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <body>
         <nav class="navbar">
@@ -24,11 +36,10 @@ $result = $conn->query("SELECT * FROM itemtb");
         <?php include('../left-navbar.php'); ?>
         <div class="adminitems-megacontainer">
             <h2>Manage Academic Items and Supply Items</h2>
-            <p>Add or delete academic and supply items from the inventory.</p>
+            <p>Add, edit, or delete academic and supply items from the inventory.</p>
             <form method="POST" action="actions/item_action.php">
                 <input name="itemtbID" placeholder="ID (REG001)" required>
                 <input name="name" placeholder="Name" required>
-                <input name="description" placeholder="Description" required>
                 <input name="price" placeholder="Price (0-999.99)" type="number" step="0.01" required>
                 <input name="stock_quantity" placeholder="Stock Quantity (0-999)" type="number" required>
                 <select name="category" required>
@@ -57,7 +68,6 @@ $result = $conn->query("SELECT * FROM itemtb");
                     <td><?= $row['price'] ?></td>
                     <td><?= $row['stock_quantity'] ?></td>
                     <td>
-                        <a class="edit-btn" href="actions/item_action.php?edit=<?= $row['itemtbID'] ?>">Edit</a>
                         <a href="actions/item_action.php?delete=<?= $row['itemtbID'] ?>">Delete</a>
                     </td>
                 </tr>

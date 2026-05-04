@@ -9,6 +9,10 @@
     text-align: center;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: 50%;
 }
 .adminusr-megacontainer h2{
     color: #2ecc71;
@@ -22,15 +26,16 @@
 }
 .adminusr-megacontainer form {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
-    margin-bottom: 20px;
 }
+
 .adminusr-megacontainer form input {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    width: 200px;
+    width: 100%; 
 }
 .adminusr-megacontainer form button {
     padding: 10px 20px;
@@ -40,8 +45,12 @@
     color: #fff;
     cursor: pointer;
 }
+.adminusr-table{
+    overflow: auto;
+    scrollbar-width: thin; 
+    scrollbar-color: #888 #3a4046;
+}
 .adminusr-megacontainer table {
-    width: 80%;
     margin: 0 auto;
     border-collapse: collapse;
 }

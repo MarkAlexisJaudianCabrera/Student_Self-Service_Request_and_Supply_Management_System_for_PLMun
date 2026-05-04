@@ -36,19 +36,20 @@
                 </select>
                 <button name="add">Add</button>
             </form>
-
-            <table border="1">
-            <?php while($row = $result->fetch_assoc()): ?>
-            <tr>
-                <td><?= $row['username'] ?></td>
-                <td><?= $row['role'] ?></td>
-                <td><?= $row['password'] ?></td>
-                <td>
-                    <a href="actions/user_action.php?delete=<?= $row['id'] ?>">Delete</a>
-                </td>
-            </tr>
-            <?php endwhile; ?>
-            </table>
+            <div class="adminusr-table">
+                <table border="1">
+                    <?php while($row = $result->fetch_assoc()): ?>
+                    <tr>
+                        <td><?= $row['username'] ?></td>
+                        <td><?= $row['role'] ?></td>
+                        <td><?= $row['password'] ?></td>
+                        <td>
+                            <a href="actions/user_action.php?delete=<?= $row['id'] ?>">Delete</a>
+                        </td>
+                    </tr>
+                    <?php endwhile; ?>
+                </table>
+            </div>
         </div>
     </body>
 </html>

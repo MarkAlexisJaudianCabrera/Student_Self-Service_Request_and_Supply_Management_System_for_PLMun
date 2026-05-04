@@ -18,8 +18,26 @@
             INSERT INTO itemtb(itemtbID,name,description,price,stock_quantity,category)
             VALUES(?,?,?,?,?,?)
         ");
+
+        if (!$stmt) {
+            die("Prepare failed: " . $conn->error);
+        }
+
         $stmt->bind_param("sssdis", $id,$name,$desc,$price,$stock,$cat);
-        $stmt->execute();
+
+        if (!$stmt->execute()) {
+
+            // ❗ Duplicate primary key error (MySQL = 1062)
+            if ($conn->errno == 1062) {
+                echo "<script>
+                    alert('Error: Item ID already exists!');
+                    window.history.back();
+                </script>";
+                exit();
+            } else {
+                echo "Error: " . $conn->error;
+            }
+        }
     }
 
     /* EDIT ITEM */

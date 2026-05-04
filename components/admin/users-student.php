@@ -33,21 +33,22 @@
                 <input name="year" placeholder="Year" required>
                 <button name="add">Add</button>
             </form>
-
-            <table border="1">
-            <?php while($row = $result->fetch_assoc()): ?>
-                <tr>
-                    <td><?= $row['student_no'] ?></td>
-                    <td><?= $row['fullname'] ?></td>
-                    <td><?= $row['instiemail'] ?></td>
-                    <td><?= $row['course'] ?></td>
-                    <td><?= $row['year'] ?></td>
-                    <td>
-                        <a href="actions/student_action.php?delete=<?= $row['id'] ?>">Delete</a>
-                    </td>
-                </tr>
-            <?php endwhile; ?>
+            <div class="adminusr-table">
+                <table border="1">
+                <?php while($row = $result->fetch_assoc()): ?>
+                    <tr>
+                        <td><?= $row['student_no'] ?></td>
+                        <td><?= $row['fullname'] ?></td>
+                        <td><?= $row['instiemail'] ?></td>
+                        <td><?= $row['course'] ?></td>
+                        <td><?= $row['year'] ?></td>
+                        <td>
+                            <a href="actions/student_action.php?delete=<?= $row['id'] ?>">Delete</a>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
             </table>
+            </div>
         </div>
     </body>
 </html>

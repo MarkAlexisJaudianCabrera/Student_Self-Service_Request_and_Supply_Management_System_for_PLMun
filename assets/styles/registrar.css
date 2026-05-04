@@ -62,12 +62,16 @@
     border-collapse: collapse;
     background: #343638;
     border-radius: 8px;
-    overflow-y: scroll;
+    overflow-y: auto;
     color: #fff;
+    scrollbar-width: thin; 
+    scrollbar-color: #888 #3a4046;
 }
 .registrar-pending-table{
     height: 400px;
-    overflow-x: scroll;
+    overflow-x: auto;
+    scrollbar-width: thin; 
+    scrollbar-color: #888 #3a4046;
 }
 
 .grn-font {
