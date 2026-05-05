@@ -1,5 +1,8 @@
 <?php
-include('../config/db.php'); 
+$conn = new mysqli("localhost", "root", "1234", "plmun_db");
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -17,8 +20,16 @@ function sendNotificationEmail($or_number, $email, $status, $note, $resStatus) {
         $mail->SMTPAuth   = true;
         $mail->Username   = 'plmunselfservicerequest@gmail.com';
         $mail->Password   = 'gsbo yseb hzxg lyri';
-        $mail->SMTPSecure = 'tls';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
+
+        $mail->SMTPOptions = [
+            'ssl' => [
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            ]
+        ];
 
         $mail->setFrom('plmunselfservicerequest@gmail.com', 'PLMUN Request System - Submitted Request');
         $mail->addAddress($email);

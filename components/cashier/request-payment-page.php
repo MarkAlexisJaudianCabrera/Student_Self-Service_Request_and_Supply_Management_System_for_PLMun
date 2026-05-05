@@ -21,7 +21,7 @@ $sql = "
     FROM requesttb r 
     JOIN request_items ri ON r.request_id = ri.request_id
     JOIN itemtb i ON ri.itemtbID = i.itemtbID
-    WHERE r.status = 'Pending'
+    WHERE r.status = 'Unpaid'
 ";
 
 // Add search conditions
