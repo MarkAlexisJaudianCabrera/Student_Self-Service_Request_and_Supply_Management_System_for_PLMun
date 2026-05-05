@@ -30,7 +30,7 @@
         switch ($status){
         
             case 'Paid':
-                $note = 'THIS REQUEST WAS PAID AT CASHIER, YOU MAY NOW PROCEED FOR THE PAYMENT AT UNIVERSITY CASHIER';
+                $note = 'THIS REQUEST WAS PAID AT TREASURY OFFICE - CASHIER, PLEASE KINDLY WAIT FOR MESSAGE WHEN WILL YOU PICK-UP THE ITEM YOU HAVE REQUESTED';
                 break;
         }
 

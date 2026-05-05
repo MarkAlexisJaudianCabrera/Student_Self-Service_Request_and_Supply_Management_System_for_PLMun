@@ -31,7 +31,7 @@
         switch ($status){
         
             case 'Unpaid':
-                $note = 'THIS REQUEST WAS ACCEPTED BY BUSINESS CENTER, YOU MAY NOW PROCEED FOR THE PAYMENT AT UNIVERSITY CASHIER';
+                $note = 'THIS REQUEST WAS ACCEPTED BY BUSINESS CENTER, YOU MAY NOW PROCEED FOR THE PAYMENT AT UNIVERSITY TREASURY OFFICE OR CASHIER';
                 break;
         }
 
