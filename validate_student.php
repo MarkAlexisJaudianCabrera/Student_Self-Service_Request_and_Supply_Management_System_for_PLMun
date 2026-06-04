@@ -23,6 +23,17 @@ if (empty($student_no) || empty($instiemail)) {
     exit();
 }
 
+// EMAIL VALIDATION - Check if email ends with @plmun.edu.ph
+if (!preg_match('/@plmun\.edu\.ph$/', $instiemail)) {
+    echo json_encode([
+        "success" => false,
+        "fullname" => "",
+        "course" => "",
+        "error" => "Please use your PLMUN email address (@plmun.edu.ph)"
+    ]);
+    exit();
+}
+
 $sql = "SELECT fullname, course FROM students WHERE student_no = ? AND instiemail = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ss", $student_no, $instiemail);
@@ -49,8 +60,9 @@ if ($result->num_rows > 0) {
 
     echo json_encode([
         "success" => false,
-        "fullname" => "Student not found",
-        "course" => "Invalid credentials"
+        "fullname" => "",
+        "course" => "",
+        "error" => "Student not found. Please check your Student ID and Email."
     ]);
 }
 

@@ -44,7 +44,15 @@
 }
 
 .student:hover {
-    background: #27ae60;
+    background: #097969;
+}
+
+.pastreq {
+    background: #2ecc71;
+    color: white;
+}
+.pastreq:hover {
+    background: #097969;
 }
 
 .admin {
@@ -53,7 +61,7 @@
 }
 
 .admin:hover {
-    background: #2ecc71;
+    background: #097969;
     color: white;
 }
 
