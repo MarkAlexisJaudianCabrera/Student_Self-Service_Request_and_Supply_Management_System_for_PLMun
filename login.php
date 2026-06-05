@@ -64,10 +64,10 @@ if ($isPost) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Staff Login</title>
-        <link rel="icon" href="./assets/ico/logo16ico.ico" >
-        <link rel="icon" href="./assets/ico/logo32ico.ico" >
-        <link rel="icon" href="./assets/ico/logo96ico.ico" >
-        <link rel="icon" href="./assets/ico/logo192ico.ico">
+        <link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/ico/logo16ico.ico">
+        <link rel="icon" type="image/x-icon" sizes="32x32" href="/assets/ico/logo32ico.ico">
+        <link rel="icon" type="image/x-icon" sizes="96x96" href="/assets/ico/logo96ico.ico">
+        <link rel="icon" type="image/x-icon" sizes="192x192" href="/assets/ico/logo192ico.ico">
         <link rel="stylesheet" href="/assets/styles/allstyles.css">
         <link rel="stylesheet" href="/assets/styles/navbar.css">
         <link rel="stylesheet" href="/assets/styles/login.css">
@@ -86,16 +86,16 @@ if ($isPost) {
             <form class="login_form" method="POST">
                 <p class="error-box <?php echo ($isPost && $error) ? 'show' : ''; ?>">
                     <br>
-                    Invalid Staff ID or Pin Number. <br>Please try again.<br><br>
+                    Invalid Employee Number or Pin. <br>Please try again.<br><br>
                 </p>
                 <br>
                 <div class="input-group">
-                    <label>Staff ID :</label><br>
-                    <input type="text" placeholder="Enter your staff ID" name="username" required>
+                    <label>Employee Number :</label><br>
+                    <input type="text" placeholder="Enter your employee number" name="username" required>
                 </div>
                 <div class="input-group">
-                    <label>Pin Number :</label><br>
-                    <input type="password" placeholder="Enter your pin number" name="password" required>
+                    <label>Pin :</label><br>
+                    <input type="password" placeholder="Enter your pin" name="password" required>
                 </div>
                 <br>
                 <button type="submit" class="login-btn">Sign In</button>

@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+$session_id = session_id() . '_' . time();
+if (!isset($_SESSION['temp_session_id'])) {
+    $_SESSION['temp_session_id'] = $session_id;
+}
+
 if (!isset($_SESSION['validated']) || $_SESSION['validated'] !== true) {
     header("Location: /404.php");
     exit();
@@ -24,10 +29,12 @@ $studentNo = $_SESSION['student_no'] ?? $_SESSION['student_number'] ?? null;
     <link rel="stylesheet" href="/assets/styles/allstyles.css">
     <link rel="stylesheet" href="/assets/styles/selectitems.css">
     <link rel="stylesheet" href="/assets/styles/navbar.css">
-    <link rel="icon" href="/assets/ico/logo16ico.ico">
-    <link rel="icon" href="/assets/ico/logo32ico.ico">
-    <link rel="icon" href="/assets/ico/logo96ico.ico">
-    <link rel="icon" href="/assets/ico/logo192ico.ico">
+    
+    <!-- For different sizes -->
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/ico/logo16ico.ico">
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="/assets/ico/logo32ico.ico">
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="/assets/ico/logo96ico.ico">
+    <link rel="icon" type="image/x-icon" sizes="192x192" href="/assets/ico/logo192ico.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>

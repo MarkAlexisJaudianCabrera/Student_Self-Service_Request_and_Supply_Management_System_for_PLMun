@@ -38,6 +38,10 @@ if (isset($_GET['error'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Admin - Manage Items | PLMUN</title>
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/ico/logo16ico.ico">
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="/assets/ico/logo32ico.ico">
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="/assets/ico/logo96ico.ico">
+    <link rel="icon" type="image/x-icon" sizes="192x192" href="/assets/ico/logo192ico.ico">
     <link rel="stylesheet" href="/assets/styles/allstyles.css">
     <link rel="stylesheet" href="/assets/styles/navbar.css">
     <link rel="stylesheet" href="/assets/styles/adminstyles/adminitems.css">

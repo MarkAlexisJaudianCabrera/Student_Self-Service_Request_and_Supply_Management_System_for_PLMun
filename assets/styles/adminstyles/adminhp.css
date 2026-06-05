@@ -10,25 +10,71 @@ body {
     overflow-x: hidden;
 }
 
-/* Fixed navbar position */
+/* Top Navbar - Fixed */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #2c3136;
+    padding: 10px 20px;
+    z-index: 1001;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Left Navbar - Fixed (Desktop) */
 .left-navbar {
     position: fixed;
     left: 0;
-    top: 0;
+    top: 60px;
     width: 260px;
-    height: 100vh;
+    height: calc(100vh - 60px);
     background: #2c3136;
-    z-index: 100;
+    z-index: 1000;
     overflow-y: auto;
+    border-right: 1px solid #4a5056;
+    transition: transform 0.3s ease;
 }
 
-/* Main Container - Proper margin for fixed navbar */
+/* Mobile Menu Button */
+.mobile-menu-btn {
+    display: none;
+    position: fixed;
+    left: 15px;
+    top: 70px;
+    z-index: 1002;
+    background: #2ecc71;
+    color: #2c3136;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Overlay for mobile */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+/* Main Container - Adjusted for both navbars */
 .admin-analytics-container {
     margin-left: 260px;
+    margin-top: 60px;
     padding: 20px;
     background: #1a1a2e;
-    min-height: 100vh;
+    min-height: calc(100vh - 60px);
     width: calc(100% - 260px);
+    transition: margin 0.3s ease, width 0.3s ease;
 }
 
 /* Stats Grid - 3 columns */
@@ -59,8 +105,11 @@ body {
 
 .stat-label {
     color: #aaa;
-    font-size: 12px;
+    font-size: 11px;
     margin-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Filter Bar */
@@ -152,7 +201,7 @@ body {
     width: 100%;
 }
 
-/* Top Items List */
+/* Top Items List with Ellipsis */
 .top-items-list {
     list-style: none;
 }
@@ -180,6 +229,7 @@ body {
     justify-content: center;
     font-weight: bold;
     font-size: 11px;
+    flex-shrink: 0;
 }
 
 .item-name {
@@ -187,12 +237,17 @@ body {
     margin-left: 10px;
     color: #fff;
     font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
 }
 
 .item-qty {
     font-weight: bold;
     color: #2ecc71;
     font-size: 12px;
+    flex-shrink: 0;
 }
 
 /* User Stats Row */
@@ -255,6 +310,7 @@ body {
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
+    flex-wrap: wrap;
 }
 
 .category-btn {
@@ -280,6 +336,7 @@ body {
 .analytics-table table {
     width: 100%;
     border-collapse: collapse;
+    min-width: 500px;
 }
 
 .analytics-table th {
@@ -296,6 +353,10 @@ body {
     color: #fff;
     border: 1px solid #4a5056;
     font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
 }
 
 .analytics-table tr:hover {
@@ -353,79 +414,162 @@ body {
     border-radius: 5px;
 }
 
-/* Responsive */
-@media (max-width: 1000px) {
+/* ========== MOBILE RESPONSIVE ========== */
+@media (max-width: 768px) {
+    /* Show mobile menu button */
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .overlay {
+        display: none;
+    }
+    
+    .overlay.active {
+        display: block;
+    }
+    
+    /* Main container full width on mobile */
     .admin-analytics-container {
         margin-left: 0;
         width: 100%;
         padding: 15px;
+        margin-top: 60px;
     }
-    .left-navbar {
-        display: none;
-    }
+    
+    /* Stats grid - 2 columns on tablet, 1 on mobile */
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
     }
+    
+    .stat-value {
+        font-size: 20px;
+    }
+    
+    .stat-icon {
+        font-size: 24px;
+    }
+    
+    .stat-label {
+        font-size: 10px;
+    }
+    
+    /* Two columns become single column */
     .two-columns {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
+    
+    /* User stats single column */
     .user-stats {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
-}
-
-@media (max-width: 600px) {
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
+    
+    /* Filter bar column layout */
     .filter-bar {
         flex-direction: column;
+        align-items: stretch;
+        padding: 12px;
     }
+    
+    .filter-buttons {
+        justify-content: center;
+    }
+    
     .custom-date {
         justify-content: center;
     }
+    
+    .custom-date input {
+        font-size: 11px;
+        padding: 5px 8px;
+    }
+    
+    .custom-date button {
+        font-size: 11px;
+        padding: 5px 12px;
+    }
+    
+    /* Chart adjustments */
+    .chart-card canvas {
+        max-height: 200px;
+    }
+    
+    /* Top items list */
+    .item-name {
+        max-width: 140px;
+        font-size: 11px;
+    }
+    
+    .item-qty {
+        font-size: 11px;
+    }
+    
+    /* Analytics table */
+    .analytics-table th,
+    .analytics-table td {
+        font-size: 11px;
+        padding: 6px 8px;
+    }
+    
+    /* Category buttons */
+    .category-buttons {
+        justify-content: center;
+    }
+    
+    /* User card */
+    .user-card {
+        padding: 12px;
+    }
+    
+    .user-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+    
+    .user-info .count {
+        font-size: 20px;
+    }
+    
+    .user-info h4 {
+        font-size: 11px;
+    }
 }
 
-/* Add this to your styles - Text truncation with ellipsis */
-.item-name {
-    flex: 1;
-    margin-left: 10px;
-    color: #fff;
-    font-size: 12px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 200px;
-}
-
-/* For table cell text truncation */
-.analytics-table td {
-    padding: 8px 10px;
-    color: #fff;
-    border: 1px solid #4a5056;
-    font-size: 12px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 250px;
-}
-
-/* For top items list */
-.top-items-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #4a5056;
-    overflow: hidden;
-}
-
-/* For stat card labels if needed */
-.stat-label {
-    color: #aaa;
-    font-size: 11px;
-    margin-top: 5px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-analytics-container {
+        padding: 10px;
+    }
+    
+    .stat-card {
+        padding: 12px;
+    }
+    
+    .filter-btn {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+    
+    .custom-date {
+        flex-wrap: wrap;
+    }
+    
+    .item-name {
+        max-width: 120px;
+    }
+    
+    .chart-card, .top-items-card, .analytics-table-container {
+        padding: 12px;
+    }
+    
+    .chart-card h3, .top-items-card h3, .analytics-table-container h3 {
+        font-size: 13px;
+    }
 }

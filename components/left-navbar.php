@@ -3,7 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/ico/logo16ico.ico">
+        <link rel="icon" type="image/x-icon" sizes="32x32" href="/assets/ico/logo32ico.ico">
+        <link rel="icon" type="image/x-icon" sizes="96x96" href="/assets/ico/logo96ico.ico">
+        <link rel="icon" type="image/x-icon" sizes="192x192" href="/assets/ico/logo192ico.ico">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </head>
     </head>
     <body>
         <!-- Hamburger (3 stacked lines) Button -->

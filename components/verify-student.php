@@ -72,6 +72,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="/assets/ico/logo16ico.ico">
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="/assets/ico/logo32ico.ico">
+    <link rel="icon" type="image/x-icon" sizes="96x96" href="/assets/ico/logo96ico.ico">
+    <link rel="icon" type="image/x-icon" sizes="192x192" href="/assets/ico/logo192ico.ico">
     <title>Verify Identity - PLMUN</title>
     <link rel="stylesheet" href="/assets/styles/allstyles.css">
     <link rel="stylesheet" href="/assets/styles/navbar.css">
@@ -169,7 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         <div class="info-note"><i class="fas fa-info-circle"></i> A 6-digit verification code will be sent to your institutional email. The code expires in 5 minutes.</div>
         <a href="/landingpage.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
-        <footer><p>© 2025 PLMUN Student Self-Service Request System</p></footer>
+        <footer><p>© 2026 All rights reserved</p></footer>
     </div>
 </body>
 </html>

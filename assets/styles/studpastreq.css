@@ -1,0 +1,636 @@
+/* ========================================
+    GLOBAL STYLES
+    ======================================== */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    background: #1a1a2e; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    min-height: 100vh; 
+}
+
+/* ========================================
+    TOP NAVBAR STYLES
+    ======================================== */
+.navbar { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    background: #2c3136; 
+    padding: 10px 20px; 
+    z-index: 1001; 
+}
+
+/* ========================================
+    MAIN CONTAINER
+    ======================================== */
+.past-requests-container { 
+    max-width: 1400px;
+    margin: 80px auto 20px;
+    padding: 20px; 
+    background: #1a1a2e; 
+    min-height: calc(100vh - 100px); 
+}
+
+/* ========================================
+    PAGE HEADER
+    ======================================== */
+.page-header { 
+    background: #2c3136; 
+    border-radius: 12px; 
+    padding: 20px; 
+    margin-bottom: 20px; 
+    text-align: center; 
+}
+
+.page-header h1 { 
+    color: #2ecc71; 
+    font-size: 24px; 
+    margin-bottom: 10px; 
+}
+
+.page-header p { 
+    color: #aaa; 
+    font-size: 13px; 
+    border-bottom: 2px solid #2ecc71; 
+    padding-bottom: 12px; 
+}
+
+/* ========================================
+    STUDENT INFO CARD
+    ======================================== */
+.student-info-card { 
+    background: #2c3136; 
+    border-radius: 10px; 
+    padding: 20px; 
+    margin-bottom: 20px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    gap: 15px; 
+}
+
+.student-details h3 { 
+    color: #fff; 
+    margin-bottom: 5px; 
+}
+
+.student-details p { 
+    color: #aaa; 
+    font-size: 14px; 
+}
+
+.student-details i { 
+    color: #2ecc71; 
+    margin-right: 8px; 
+}
+
+.back-btn { 
+    background: #2ecc71; 
+    color: #2c3136; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    text-decoration: none; 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 8px; 
+}
+
+.back-btn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+}
+
+/* ========================================
+    STATS CARDS
+    ======================================== */
+.stats-row { 
+    display: grid; 
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 15px; 
+    margin-bottom: 20px; 
+}
+
+.stat-card { 
+    background: #2c3136; 
+    border-radius: 10px; 
+    padding: 15px; 
+    text-align: center; 
+}
+
+.stat-card i { 
+    font-size: 28px; 
+    color: #2ecc71; 
+    margin-bottom: 8px; 
+}
+
+.stat-number { 
+    font-size: 22px; 
+    font-weight: bold; 
+    color: #fff; 
+}
+
+.stat-label { 
+    color: #aaa; 
+    font-size: 11px; 
+    margin-top: 5px; 
+}
+
+/* ========================================
+    FILTER TABS
+    ======================================== */
+.filter-tabs { 
+    display: flex; 
+    gap: 10px; 
+    margin-bottom: 20px; 
+    flex-wrap: wrap; 
+    border-bottom: 1px solid #4a5056; 
+    padding-bottom: 15px; 
+}
+
+.filter-tab { 
+    background: transparent; 
+    border: none; 
+    padding: 8px 20px; 
+    color: #aaa; 
+    cursor: pointer; 
+    border-radius: 20px; 
+    font-size: 13px; 
+}
+
+.filter-tab:hover { 
+    color: #fff; 
+}
+
+.filter-tab.active { 
+    background: #2ecc71; 
+    color: #2c3136; 
+}
+
+/* ========================================
+    TABLE STYLES - WITH SCROLL
+    ======================================== */
+.table-container { 
+    background: #2c3136; 
+    border-radius: 12px; 
+    overflow: auto;
+    width: 100%;
+    max-height: 300px !important;
+}
+
+.requests-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    min-width: 900px;
+}
+
+.requests-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.requests-table th { 
+    background: #3a4046; 
+    color: #2ecc71; 
+    padding: 12px 15px; 
+    text-align: left; 
+    font-size: 12px; 
+    font-weight: bold;
+    border-bottom: 2px solid #2ecc71; 
+    white-space: nowrap;
+}
+
+.requests-table td { 
+    padding: 10px 15px; 
+    color: #fff; 
+    font-size: 12px; 
+    border-bottom: 1px solid #4a5056; 
+}
+
+.requests-table tbody tr:hover { 
+    background: #3a4046; 
+}
+
+/* Column specific widths */
+.requests-table th:first-child,
+.requests-table td:first-child {
+    min-width: 200px;
+}
+
+.requests-table th:nth-child(2),
+.requests-table td:nth-child(2) {
+    min-width: 150px;
+}
+
+.requests-table th:nth-child(3),
+.requests-table td:nth-child(3) {
+    min-width: 80px;
+    text-align: center;
+}
+
+.requests-table th:nth-child(4),
+.requests-table td:nth-child(4) {
+    min-width: 100px;
+}
+
+.requests-table th:nth-child(5),
+.requests-table td:nth-child(5) {
+    min-width: 100px;
+}
+
+.requests-table th:nth-child(6),
+.requests-table td:nth-child(6) {
+    min-width: 150px;
+}
+
+.requests-table th:last-child,
+.requests-table td:last-child {
+    min-width: 80px;
+}
+
+/* ========================================
+    STATUS BADGES
+    ======================================== */
+.status-badge { 
+    display: inline-block; 
+    padding: 4px 12px; 
+    border-radius: 20px; 
+    font-size: 11px; 
+    font-weight: bold; 
+}
+
+.status-pending { 
+    background: #ffc107; 
+    color: #2c3136; 
+}
+
+.status-paid { 
+    background: #28a745; 
+    color: #fff; 
+}
+
+.status-approved { 
+    background: #2ecc71; 
+    color: #2c3136; 
+}
+
+.status-completed { 
+    background: #17a2b8; 
+    color: #fff; 
+}
+
+.status-rejected { 
+    background: #dc3545; 
+    color: #fff; 
+}
+
+/* ========================================
+    PICKUP SCHEDULE
+    ======================================== */
+.pickup-schedule { 
+    font-size: 11px; 
+}
+
+.pickup-scheduled { 
+    color: #2ecc71; 
+}
+
+.pickup-pending { 
+    color: #ffc107; 
+}
+
+/* ========================================
+    BUTTONS
+    ======================================== */
+.view-details-btn { 
+    background: #2ecc71; 
+    color: #2c3136; 
+    border: none; 
+    padding: 5px 12px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 11px; 
+}
+
+.view-details-btn:hover {
+    background: #45a049;
+    transform: translateY(-1px);
+}
+
+/* ========================================
+    MODAL STYLES
+    ======================================== */
+.modal { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.8); 
+    z-index: 2000; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.modal-content { 
+    background: #2c3136; 
+    border-radius: 15px; 
+    width: 90%; 
+    max-width: 600px; 
+    max-height: 80vh; 
+    overflow-y: auto; 
+    animation: modalSlideIn 0.3s ease; 
+}
+
+@keyframes modalSlideIn { 
+    from { transform: translateY(-50px); opacity: 0; } 
+    to { transform: translateY(0); opacity: 1; } 
+}
+
+.modal-header { 
+    padding: 20px; 
+    border-bottom: 2px solid #2ecc71; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.modal-header h3 { 
+    color: #2ecc71; 
+}
+
+.close-modal { 
+    background: none; 
+    border: none; 
+    color: #fff; 
+    font-size: 24px; 
+    cursor: pointer; 
+}
+
+.close-modal:hover {
+    color: #dc3545;
+}
+
+.modal-body { 
+    padding: 20px; 
+}
+
+/* ========================================
+    REQUEST INFO CARD
+    ======================================== */
+.request-info { 
+    background: #3a4046; 
+    border-radius: 10px; 
+    padding: 15px; 
+    margin-bottom: 20px; 
+}
+
+.request-info p { 
+    margin: 8px 0; 
+    color: #ddd; 
+}
+
+.request-info strong { 
+    color: #2ecc71; 
+}
+
+/* ========================================
+    ITEMS TABLE (INSIDE MODAL)
+    ======================================== */
+.items-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 15px; 
+}
+
+.items-table th, 
+.items-table td { 
+    padding: 10px; 
+    text-align: left; 
+    border-bottom: 1px solid #4a5056; 
+}
+
+.items-table th { 
+    background: #2c3136; 
+    color: #2ecc71; 
+}
+
+/* ========================================
+    TRACKING TIMELINE
+    ======================================== */
+.tracking-timeline { 
+    margin-top: 20px; 
+    padding: 15px; 
+    background: #3a4046; 
+    border-radius: 10px; 
+}
+
+.timeline-item { 
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 15px; 
+    position: relative; 
+}
+
+.timeline-icon { 
+    width: 40px; 
+    height: 40px; 
+    background: #2c3136; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin-right: 15px; 
+    z-index: 1; 
+}
+
+.timeline-icon i { 
+    color: #2ecc71; 
+    font-size: 18px; 
+}
+
+.timeline-content { 
+    flex: 1; 
+}
+
+.timeline-content .status { 
+    font-weight: bold; 
+    color: #fff; 
+}
+
+.timeline-content .date { 
+    font-size: 12px; 
+    color: #aaa; 
+}
+
+.timeline-line { 
+    position: absolute; 
+    left: 20px; 
+    top: 40px; 
+    width: 2px; 
+    height: calc(100% - 20px); 
+    background: #4a5056; 
+}
+
+.timeline-item:last-child .timeline-line { 
+    display: none; 
+}
+
+/* ========================================
+    PICKUP INFO (INSIDE MODAL)
+    ======================================== */
+.pickup-info { 
+    background: rgba(46, 204, 113, 0.15); 
+    border: 1px solid #2ecc71; 
+    border-radius: 10px; 
+    padding: 15px; 
+    margin-top: 20px; 
+}
+
+/* ========================================
+    NO DATA STATE
+    ======================================== */
+.no-data { 
+    text-align: center; 
+    padding: 50px; 
+    color: #aaa; 
+}
+
+.no-data i {
+    font-size: 48px;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+/* ========================================
+    SCROLLBAR STYLES
+    ======================================== */
+::-webkit-scrollbar { 
+    width: 5px; 
+    height: 5px; 
+}
+
+::-webkit-scrollbar-track { 
+    background: #3a4046; 
+}
+
+::-webkit-scrollbar-thumb { 
+    background: #2ecc71; 
+    border-radius: 5px; 
+}
+
+/* ========================================
+    RESPONSIVE DESIGN
+    ======================================== */
+@media (max-width: 1200px) {
+    .past-requests-container { 
+        margin: 80px 30px 20px;
+        padding: 15px; 
+    }
+}
+
+@media (max-width: 992px) {
+    .past-requests-container { 
+        margin: 80px 20px 20px;
+    }
+    
+    .stats-row { 
+        gap: 12px; 
+    }
+    
+    .stat-number {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .past-requests-container { 
+        margin: 75px 15px 20px;
+        padding: 12px; 
+    }
+    
+    .stats-row { 
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 10px;
+    }
+    
+    .student-info-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .filter-tabs {
+        justify-content: center;
+    }
+    
+    .filter-tab {
+        padding: 6px 14px;
+        font-size: 12px;
+    }
+    
+    .table-container {
+        max-height: 350px;
+    }
+    
+    .requests-table th,
+    .requests-table td {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 600px) {
+    .stats-row { 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    
+    .page-header {
+        padding: 15px;
+    }
+    
+    .page-header h1 {
+        font-size: 20px;
+    }
+    
+    .filter-tab {
+        padding: 5px 12px;
+        font-size: 11px;
+    }
+    
+    .table-container {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 450px) {
+    .stats-row { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .past-requests-container { 
+        margin: 70px 10px 15px;
+        padding: 10px; 
+    }
+    
+    .table-container {
+        max-height: 280px;
+    }
+    
+    .requests-table th,
+    .requests-table td {
+        padding: 6px 8px;
+        font-size: 10px;
+    }
+}
